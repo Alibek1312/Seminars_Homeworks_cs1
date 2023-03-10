@@ -95,7 +95,7 @@
 // Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 // [3 7 22 2 78] -> 76
 
-int[] CreateRandomArray(int size, int minValue, int maxValue)
+double[] CreateRandomArray(int size, int minValue, int maxValue)
 {
     int[] newArray = new int[size];
     for (int i = 0; i < size; i++)
@@ -103,15 +103,15 @@ int[] CreateRandomArray(int size, int minValue, int maxValue)
         newArray[i] = new Random().Next(minValue, maxValue + 1);
     }
 
-    // double[] newArrayDouble = new double[size];
-    // for (int i = 0; i < size; i++)
-    // {
-    //     newArrayDouble[i] = new Random().Next(minValue, maxValue + 1);
-    // }
-    return newArray;
+    double[] newArrayDouble = new double[size];
+    for (int i = 0; i < size; i++)
+    {
+        newArrayDouble[i] = Math.Round(new Random().NextDouble() + newArray[i], 2);
+    }
+    return newArrayDouble;
 }
 
-void ShowArray(int[] array)
+void ShowArray(double[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -120,10 +120,10 @@ void ShowArray(int[] array)
     Console.WriteLine();
 }
 
-int DifMaxAndMinDigits(int[] array)
+double DifMaxAndMinDigits(double[] array)
 {
-    int minDig = array[0];
-    int maxDig = array[0];
+    double minDig = array[0];
+    double maxDig = array[0];
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i] < minDig)
@@ -144,6 +144,6 @@ Console.Write("Input min: ");
 int minValue = Convert.ToInt32(Console.ReadLine());
 Console.Write("Input max: ");
 int maxValue = Convert.ToInt32(Console.ReadLine());
-int[] myarray = CreateRandomArray(size, minValue, maxValue);
+double[] myarray = CreateRandomArray(size, minValue, maxValue);
 ShowArray(myarray);
 Console.Write($"Difference of max and min digits is --> {DifMaxAndMinDigits(myarray)}");
