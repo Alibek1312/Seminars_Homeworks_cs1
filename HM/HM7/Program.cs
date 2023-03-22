@@ -156,8 +156,11 @@ void SrednayaArfmetikaPoStolbsu(int [,] array)
         for (int i = 0; i < array.GetLength(0); i++)
         {
             SredArif = SredArif + array[i, j];
+            // Console.Write($" {SredArif/array.GetLength(0)} ");
+            // SredArif = 0;
         }
     Console.Write($" {SredArif/array.GetLength(0)} ");
+    SredArif = 0;
     }
 }
 
@@ -173,4 +176,4 @@ int maxValue = Convert.ToInt32(Console.ReadLine());
 int[,] myArray = Creat2DRandomArray(rows, columns, minValue, maxValue);
 Show2DArray(myArray);
 Console.WriteLine();
-SrednayaArfmetikaPoStolbsu(myArray, rows);
+SrednayaArfmetikaPoStolbsu(myArray);
